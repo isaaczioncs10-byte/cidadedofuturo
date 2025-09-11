@@ -87,15 +87,34 @@ const videoOptions = {
   "Comunicação e Entretenimento": ["Hologramas interativos", "Jogos de realidade aumentada", "Música criada por IA"]
 };
 
+const categoryIcons = {
+  "Ambiente da Cidade": "fa-solid fa-city",
+  "Transporte": "fa-solid fa-rocket",
+  "Energia": "fa-solid fa-bolt",
+  "Sociedade": "fa-solid fa-users",
+  "Saúde": "fa-solid fa-heart-pulse",
+  "Exploração Espacial": "fa-solid fa-satellite",
+  "Natureza e Sustentabilidade": "fa-solid fa-leaf",
+  "Comunicação e Entretenimento": "fa-solid fa-vr-cardboard"
+};
+
 function renderOptions() {
   const container = document.getElementById("options-container");
   container.innerHTML = "";
   Object.entries(videoOptions).forEach(([category, options]) => {
     const block = document.createElement("div");
     block.className = "option-block";
-    block.innerHTML = `<h3 class="option-title">${category}</h3>`;
+
+    block.innerHTML = `
+      <div class="option-header">
+        <i class="${categoryIcons[category]} option-icon"></i>
+        <h3 class="option-title">${category}</h3>
+      </div>
+    `;
+
     const btnGroup = document.createElement("div");
     btnGroup.className = "option-buttons";
+
     options.forEach(option => {
       const btn = document.createElement("button");
       btn.className = "option-btn";
@@ -103,27 +122,57 @@ function renderOptions() {
       btn.onclick = () => chooseOption(category, option);
       btnGroup.appendChild(btn);
     });
+
     block.appendChild(btnGroup);
     container.appendChild(block);
   });
 }
 
+
+// Guardar progresso de cada opção (qual vídeo está sendo exibido)
+const videoCycleIndex = {};
+
 async function chooseOption(category, option) {
   const loadingSection = document.getElementById("loading-animation");
   const videoResult = document.getElementById("video-result");
+
+  // Mostrar loading
   loadingSection.classList.remove("hidden");
   videoResult.classList.add("hidden");
 
-  await new Promise(r => setTimeout(r, 2000));
+  await new Promise(r => setTimeout(r, 1000)); // 1s de loading
+
+  // Normalizar nome da pasta
+  const folder = option
+    .normalize("NFD") // remove acentos
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+
+  // Ciclo: qual vídeo exibir agora?
+  if (!videoCycleIndex[option]) videoCycleIndex[option] = 0;
+  const currentIndex = videoCycleIndex[option];
+  videoCycleIndex[option] = (currentIndex + 1) % 4; // avança, volta pro 0 depois do 3
+
+  // Montar URL do GitHub Pages
+  const videoUrl = `videos/${folder}/video${currentIndex + 1}.mp4`;
+
+  // Dados do vídeo
   const videoData = {
     title: `${option} - ${category}`,
     description: `Uma visão de: ${option}`,
-    videoUrl: "https://cdn.videvo.net/videvo_files/video/free/2019-10/small_watermarked/191016_11_MARS_4k_006_preview.webm"
+    videoUrl
   };
+
+  // Contabilizar estatísticas
   videosGenerated++;
   updateStats();
+
+  // Mostrar resultado
   showVideoResult(videoData);
-  loadingSection.classList.add("hidden");
+
+  // Esconder loading
+   loadingSection.classList.add("hidden");
 }
 
 function showVideoResult(videoData) {
