@@ -978,4 +978,95 @@ body {
   color: #0077b6;
   border-radius: 30px;
   font-weight: 600;
+
+}
+
+/* Grid de Opções */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.option-block {
+  background: var(--dark-card);
+  color: var(--text-primary);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.option-block:hover {
+  transform: scale(1.05);
+  border-color: var(--cyber-blue);
+}
+
+.option-title {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: var(--cyber-blue);
+}
+
+.option-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 10px 16px;
+  border: 2px solid var(--cyber-blue);
+  background: transparent;
+  color: var(--cyber-blue);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  background: var(--cyber-blue);
+  color: var(--dark-bg);
+}
+
+/* Conceitos Alinhados */
+.concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.concept-card {
+  background: var(--dark-card);
+  padding: 32px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.concept-card:hover {
+  transform: scale(1.05);
+  border-color: var(--cyber-blue);
+}
+
+@media (max-width: 1024px) {
+  .options-grid, .concepts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .options-grid, .concepts-grid {
+    grid-template-columns: 1fr;
+  }
 }
