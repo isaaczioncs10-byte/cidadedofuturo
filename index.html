@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade do Futuro - Passado, Presente e Futuro</title>
+  <meta name="description" content="Explore o passado, presente e futuro da Inteligência Artificial através de visualizações imersivas e vídeos.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-robot"></i>
+        <span>Cidade do Futuro</span>
+      </div>
+      <div class="nav-links">
+        <button onclick="scrollToSection('timeline')">Timeline</button>
+        <button onclick="scrollToSection('generator')">Gerador</button>
+        <button onclick="scrollToSection('stats')">Estatísticas</button>
+      </div>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">CIDADE DO FUTURO</h1>
+      <p class="hero-subtitle">
+        Explore o passado, viva o presente e 
+        <span class="highlight">imagine o futuro</span> 
+        da Inteligência Artificial
+      </p>
+      <div class="hero-buttons">
+        <button onclick="scrollToSection('timeline')" class="btn-primary">
+          <i class="fas fa-play"></i> Começar Jornada
+        </button>
+        <button onclick="scrollToSection('generator')" class="btn-secondary">
+          <i class="fas fa-info-circle"></i> Saiba Mais
+        </button>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </header>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="timeline-section">
+    <div class="container">
+      <h2 class="section-title">Linha do Tempo da IA</h2>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div class="timeline-items" id="timeline-items"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Concepts -->
+  <section class="future-concepts-section">
+    <div class="container">
+      <h2 class="section-title">Conceitos do Futuro</h2>
+      <div class="concepts-grid" id="concepts-grid"></div>
+    </div>
+  </section>
+
+  <!-- Video Generator -->
+  <section id="generator" class="generator-section">
+    <div class="container">
+      <h2 class="section-title">Escolha seu Futuro</h2>
+      <p class="section-subtitle">Selecione uma categoria e veja um vídeo pré-pronto!</p>
+      <div id="options-container" class="options-grid"></div>
+
+      <!-- Loading Animation -->
+      <div id="loading-animation" class="loading-section hidden">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Carregando vídeo...</p>
+      </div>
+
+      <!-- Generated Video Result -->
+      <div id="video-result" class="video-result hidden"></div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section id="stats" class="stats-section">
+    <div class="container">
+      <h2 class="section-title">Estatísticas do Projeto</h2>
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-value" id="videos-generated" data-target="0">0</div>
+          <p class="stat-label">Vídeos Assistidos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-info">
+            <i class="fas fa-robot"></i>
+            <span>Cidade do Futuro</span>
+          </div>
+          <p>Explorando o passado, presente e futuro da Inteligência Artificial através de visualizações imersivas.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Navegação</h3>
+          <ul>
+            <li><button onclick="scrollToSection('timeline')">Timeline</button></li>
+            <li><button onclick="scrollToSection('generator')">Gerador</button></li>
+            <li><button onclick="scrollToSection('stats')">Estatísticas</button></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Projeto</h3>
+          <ul>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Equipe</a></li>
+            <li><a href="#">Tecnologia</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 FECART - Cidade do Futuro. Projeto educacional sobre Inteligência Artificial.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Visualização do Vídeo</h3>
+        <button onclick="closeModal()" class="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <video id="modal-video" controls></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
