@@ -155,7 +155,7 @@ async function chooseOption(category, option) {
   videoCycleIndex[option] = (currentIndex + 1) % 4; // avança, volta pro 0 depois do 3
 
   // Montar URL do GitHub Pages
-  const videoUrl = `videos/${folder}/video${currentIndex + 1}.mp4`;
+  const videoUrl = `video/${folder}/video${currentIndex + 1}.mp4`;
 
   // Dados do vídeo
   const videoData = {
