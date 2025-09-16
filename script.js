@@ -126,6 +126,7 @@ function generateTimeline() {
 
 
 // Conceitos do Futuro
+// Substitua a função generateConcepts existente por isso:
 function generateConcepts() {
   const concepts = [
     { 
@@ -178,6 +179,15 @@ function generateConcepts() {
     card.className = 'concept-card';
     card.innerHTML = `
       <div class="concept-emoji">${concept.emoji}</div>
+      <h3 class="concept-title" style="color: var(--${concept.color});">${concept.title}</h3>
+      <ul class="concept-list">
+        ${concept.highlights.map(h => `<li>${h}</li>`).join('')}
+      </ul>
+    `;
+    container.appendChild(card);
+  });
+}
+
 
 // Opções
 const videoOptions = {
