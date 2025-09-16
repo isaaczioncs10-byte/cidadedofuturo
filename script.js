@@ -296,13 +296,28 @@ function showVideoResult(videoData) {
     <p style="color: var(--text-secondary); margin-bottom: 24px;">
       Sua visão: "<em>${videoData.description}</em>"
     </p>
-    <video controls width="640">
+    <video id="generated-video" controls width="640">
       <source src="${videoData.videoUrl}" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>
   `;
   videoResult.classList.remove('hidden');
+
+  // Scroll suave até o vídeo
+  videoResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  // Espera um pouquinho para garantir que o vídeo foi renderizado
+  setTimeout(() => {
+    const vid = document.getElementById("generated-video");
+    if (vid) {
+      vid.play().catch(() => {
+        // Caso o navegador bloqueie autoplay, não quebra o fluxo
+        console.log("Autoplay bloqueado pelo navegador.");
+      });
+    }
+  }, 500);
 }
+
 function updateStats() {
   document.getElementById('videos-generated').textContent = videosGenerated;
 }
