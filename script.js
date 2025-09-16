@@ -182,14 +182,13 @@ function showVideoResult(videoData) {
     <p style="color: var(--text-secondary); margin-bottom: 24px;">
       Sua visão: "<em>${videoData.description}</em>"
     </p>
-    <video controls>
+    <video controls width="640">
       <source src="${videoData.videoUrl}" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>
   `;
   videoResult.classList.remove('hidden');
 }
-
 function updateStats() {
   document.getElementById('videos-generated').textContent = videosGenerated;
 }
