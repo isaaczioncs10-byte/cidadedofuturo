@@ -183,7 +183,7 @@ function showVideoResult(videoData) {
       Sua visão: "<em>${videoData.description}</em>"
     </p>
     <video controls>
-      <source src="${videoData.videoUrl}" type="video/webm">
+      <source src="${videoData.videoUrl}" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>
   `;
