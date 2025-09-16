@@ -29,30 +29,92 @@ function initParticles() {
 // Timeline
 function generateTimeline() {
   const timelineItems = [
-    { period: "1950-1990", title: "Início da Era Digital", description: "Primeiros computadores e o Teste de Turing.", icon: "fas fa-desktop", color: "cyber-blue", side: "left" },
-    { period: "1990-2000", title: "Fundações Modernas", description: "Internet global e primeiras redes neurais práticas.", icon: "fas fa-microchip", color: "cyber-green", side: "right" },
-    { period: "2000-2025", title: "Era Moderna", description: "Deep Learning, GPT e avanços em visão computacional.", icon: "fas fa-brain", color: "cyber-purple", side: "left" },
-    { period: "2025-2080", title: "O Futuro", description: "AGI, cidades inteligentes e colonização espacial.", icon: "fas fa-rocket", color: "cyber-pink", side: "right" }
+    { 
+      period: "1950-1990",
+      title: "Início da Era Digital",
+      highlights: [
+        "Primeiros computadores eletrônicos",
+        "Teste de Turing (1950)",
+        "Bases da IA simbólica"
+      ],
+      icon: "fas fa-desktop",
+      color: "cyber-blue",
+      side: "left"
+    },
+    { 
+      period: "1990-2000",
+      title: "Fundações Modernas",
+      highlights: [
+        "Popularização da internet",
+        "Redes neurais práticas",
+        "Máquinas de busca emergentes"
+      ],
+      icon: "fas fa-microchip",
+      color: "cyber-green",
+      side: "right"
+    },
+    { 
+      period: "2000-2025",
+      title: "Era Moderna",
+      highlights: [
+        "Avanços em Deep Learning",
+        "Modelos como GPT",
+        "Visão computacional aplicada"
+      ],
+      icon: "fas fa-brain",
+      color: "cyber-purple",
+      side: "left"
+    },
+    { 
+      period: "2025-2080",
+      title: "O Futuro",
+      highlights: [
+        "Inteligência Artificial Geral (AGI)",
+        "Cidades inteligentes",
+        "Exploração e colonização espacial"
+      ],
+      icon: "fas fa-rocket",
+      color: "cyber-pink",
+      side: "right"
+    }
   ];
 
   const container = document.getElementById('timeline-items');
-  timelineItems.forEach((item, index) => {
+  timelineItems.forEach((item) => {
     const el = document.createElement('div');
     el.className = 'timeline-item';
+
+    const highlightsHTML = `
+      <div class="timeline-description">
+        <ul>
+          ${item.highlights.map(h => `<li>${h}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+
     el.innerHTML = `
       ${item.side === 'left'
-        ? `<div class="timeline-content"><h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
-            <h4 class="timeline-title">${item.title}</h4>
-            <p>${item.description}</p><i class="${item.icon}" style="color: var(--${item.color});"></i></div>
-            <div class="timeline-dot" style="background: var(--${item.color});"></div><div style="width:45%;"></div>`
-        : `<div style="width:45%;"></div><div class="timeline-dot" style="background: var(--${item.color});"></div>
-            <div class="timeline-content"><h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
-            <h4 class="timeline-title">${item.title}</h4>
-            <p>${item.description}</p><i class="${item.icon}" style="color: var(--${item.color});"></i></div>`}
+        ? `<div class="timeline-content">
+             <h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
+             <h4 class="timeline-title">${item.title}</h4>
+             ${highlightsHTML}
+             <i class="${item.icon}" style="color: var(--${item.color});"></i>
+           </div>
+           <div class="timeline-dot" style="background: var(--${item.color});"></div>
+           <div style="width:45%;"></div>`
+        : `<div style="width:45%;"></div>
+           <div class="timeline-dot" style="background: var(--${item.color});"></div>
+           <div class="timeline-content">
+             <h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
+             <h4 class="timeline-title">${item.title}</h4>
+             ${highlightsHTML}
+             <i class="${item.icon}" style="color: var(--${item.color});"></i>
+           </div>`}
     `;
     container.appendChild(el);
   });
 }
+
 
 // Conceitos do Futuro
 function generateConcepts() {
