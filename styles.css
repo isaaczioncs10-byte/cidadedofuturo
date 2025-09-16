@@ -1157,9 +1157,11 @@ body {
   color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.5;
+  margin-top: 8px;
 }
 
 .timeline-description li {
   margin-bottom: 6px;
 }
+
 
