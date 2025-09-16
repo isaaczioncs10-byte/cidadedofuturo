@@ -32,6 +32,7 @@ function generateTimeline() {
     { 
       period: "1950-1990",
       title: "Início da Era Digital",
+      description: "Primeiros computadores e o Teste de Turing.",
       highlights: [
         "Primeiros computadores eletrônicos",
         "Teste de Turing (1950)",
@@ -44,10 +45,11 @@ function generateTimeline() {
     { 
       period: "1990-2000",
       title: "Fundações Modernas",
+      description: "Internet global e primeiras redes neurais práticas.",
       highlights: [
         "Popularização da internet",
-        "Redes neurais práticas",
-        "Máquinas de busca emergentes"
+        "Redes neurais começam a funcionar",
+        "Motores de busca em crescimento"
       ],
       icon: "fas fa-microchip",
       color: "cyber-green",
@@ -56,10 +58,11 @@ function generateTimeline() {
     { 
       period: "2000-2025",
       title: "Era Moderna",
+      description: "Deep Learning, GPT e avanços em visão computacional.",
       highlights: [
         "Avanços em Deep Learning",
-        "Modelos como GPT",
-        "Visão computacional aplicada"
+        "Modelos de linguagem (GPT, BERT, etc.)",
+        "Aplicações em imagens, voz e tradução"
       ],
       icon: "fas fa-brain",
       color: "cyber-purple",
@@ -68,9 +71,10 @@ function generateTimeline() {
     { 
       period: "2025-2080",
       title: "O Futuro",
+      description: "AGI, cidades inteligentes e colonização espacial.",
       highlights: [
         "Inteligência Artificial Geral (AGI)",
-        "Cidades inteligentes",
+        "Cidades inteligentes conectadas",
         "Exploração e colonização espacial"
       ],
       icon: "fas fa-rocket",
@@ -80,12 +84,16 @@ function generateTimeline() {
   ];
 
   const container = document.getElementById('timeline-items');
+  container.innerHTML = ""; // limpa antes de gerar
+
   timelineItems.forEach((item) => {
     const el = document.createElement('div');
     el.className = 'timeline-item';
 
+    // lista de bullets
     const highlightsHTML = `
       <div class="timeline-description">
+        <p>${item.description}</p>
         <ul>
           ${item.highlights.map(h => `<li>${h}</li>`).join('')}
         </ul>
@@ -114,6 +122,7 @@ function generateTimeline() {
     container.appendChild(el);
   });
 }
+
 
 
 // Conceitos do Futuro
