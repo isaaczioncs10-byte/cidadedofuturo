@@ -128,23 +128,56 @@ function generateTimeline() {
 // Conceitos do Futuro
 function generateConcepts() {
   const concepts = [
-    { emoji: "🏙️", title: "Cidades Inteligentes", description: "IA controla energia e mobilidade.", color: "cyber-blue" },
-    { emoji: "🤖", title: "Robôs Humanoides", description: "Companheiros e assistentes sociais.", color: "cyber-purple" },
-    { emoji: "🧠", title: "IA na Saúde", description: "Diagnósticos e cirurgias avançadas.", color: "cyber-pink" },
-    { emoji: "🌌", title: "Exploração Espacial", description: "Colonização e exploração do cosmos.", color: "cyber-green" }
+    { 
+      emoji: "🏙️", 
+      title: "Cidades Inteligentes", 
+      highlights: [
+        "Gestão de energia automatizada",
+        "Mobilidade autônoma integrada",
+        "Infraestrutura adaptativa"
+      ],
+      color: "cyber-blue" 
+    },
+    { 
+      emoji: "🤖", 
+      title: "Robôs Humanoides", 
+      highlights: [
+        "Companheiros sociais",
+        "Assistência a idosos e deficientes",
+        "Trabalhos de risco substituídos"
+      ],
+      color: "cyber-purple" 
+    },
+    { 
+      emoji: "🧠", 
+      title: "IA na Saúde", 
+      highlights: [
+        "Diagnósticos precisos em segundos",
+        "Cirurgias assistidas por IA",
+        "Medicina personalizada"
+      ],
+      color: "cyber-pink" 
+    },
+    { 
+      emoji: "🌌", 
+      title: "Exploração Espacial", 
+      highlights: [
+        "Colonização de Marte",
+        "Estações orbitais autossustentáveis",
+        "Mineração de asteroides"
+      ],
+      color: "cyber-green" 
+    }
   ];
+
   const container = document.getElementById('concepts-grid');
+  container.innerHTML = "";
+
   concepts.forEach(concept => {
     const card = document.createElement('div');
     card.className = 'concept-card';
     card.innerHTML = `
       <div class="concept-emoji">${concept.emoji}</div>
-      <h3 class="concept-title" style="color: var(--${concept.color});">${concept.title}</h3>
-      <p class="concept-description">${concept.description}</p>
-    `;
-    container.appendChild(card);
-  });
-}
 
 // Opções
 const videoOptions = {
