@@ -1150,3 +1150,16 @@ body {
 @media (max-width: 600px) {
   .options-grid { grid-template-columns: 1fr; }
 }
+
+.timeline-description ul {
+  list-style: disc;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.timeline-description li {
+  margin-bottom: 6px;
+}
+
