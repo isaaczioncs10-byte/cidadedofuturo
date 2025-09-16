@@ -1163,5 +1163,19 @@ body {
 .timeline-description li {
   margin-bottom: 6px;
 }
+.concept-list {
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.concept-list li {
+  margin-bottom: 6px;
+}
+
 
 
