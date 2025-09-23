@@ -29,158 +29,47 @@ function initParticles() {
 // Timeline
 function generateTimeline() {
   const timelineItems = [
-    { 
-      period: "1950-1990",
-      title: "Início da Era Digital",
-      description: "Primeiros computadores e o Teste de Turing.",
-      highlights: [
-        "Primeiros computadores eletrônicos",
-        "Teste de Turing (1950)",
-        "Bases da IA simbólica"
-      ],
-      icon: "fas fa-desktop",
-      color: "cyber-blue",
-      side: "left"
-    },
-    { 
-      period: "1990-2000",
-      title: "Fundações Modernas",
-      description: "Internet global e primeiras redes neurais práticas.",
-      highlights: [
-        "Popularização da internet",
-        "Redes neurais começam a funcionar",
-        "Motores de busca em crescimento"
-      ],
-      icon: "fas fa-microchip",
-      color: "cyber-green",
-      side: "right"
-    },
-    { 
-      period: "2000-2025",
-      title: "Era Moderna",
-      description: "Deep Learning, GPT e avanços em visão computacional.",
-      highlights: [
-        "Avanços em Deep Learning",
-        "Modelos de linguagem (GPT, BERT, etc.)",
-        "Aplicações em imagens, voz e tradução"
-      ],
-      icon: "fas fa-brain",
-      color: "cyber-purple",
-      side: "left"
-    },
-    { 
-      period: "2025-2080",
-      title: "O Futuro",
-      description: "AGI, cidades inteligentes e colonização espacial.",
-      highlights: [
-        "Inteligência Artificial Geral (AGI)",
-        "Cidades inteligentes conectadas",
-        "Exploração e colonização espacial"
-      ],
-      icon: "fas fa-rocket",
-      color: "cyber-pink",
-      side: "right"
-    }
+    { period: "1950-1990", title: "Início da Era Digital", description: "Primeiros computadores e o Teste de Turing.", icon: "fas fa-desktop", color: "cyber-blue", side: "left" },
+    { period: "1990-2000", title: "Fundações Modernas", description: "Internet global e primeiras redes neurais práticas.", icon: "fas fa-microchip", color: "cyber-green", side: "right" },
+    { period: "2000-2025", title: "Era Moderna", description: "Deep Learning, GPT e avanços em visão computacional.", icon: "fas fa-brain", color: "cyber-purple", side: "left" },
+    { period: "2025-2080", title: "O Futuro", description: "AGI, cidades inteligentes e colonização espacial.", icon: "fas fa-rocket", color: "cyber-pink", side: "right" }
   ];
 
   const container = document.getElementById('timeline-items');
-  container.innerHTML = ""; // limpa antes de gerar
-
-  timelineItems.forEach((item) => {
+  timelineItems.forEach((item, index) => {
     const el = document.createElement('div');
     el.className = 'timeline-item';
-
-    // lista de bullets
-    const highlightsHTML = `
-      <div class="timeline-description">
-        <p>${item.description}</p>
-        <ul>
-          ${item.highlights.map(h => `<li>${h}</li>`).join('')}
-        </ul>
-      </div>
-    `;
-
     el.innerHTML = `
       ${item.side === 'left'
-        ? `<div class="timeline-content">
-             <h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
-             <h4 class="timeline-title">${item.title}</h4>
-             ${highlightsHTML}
-             <i class="${item.icon}" style="color: var(--${item.color});"></i>
-           </div>
-           <div class="timeline-dot" style="background: var(--${item.color});"></div>
-           <div style="width:45%;"></div>`
-        : `<div style="width:45%;"></div>
-           <div class="timeline-dot" style="background: var(--${item.color});"></div>
-           <div class="timeline-content">
-             <h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
-             <h4 class="timeline-title">${item.title}</h4>
-             ${highlightsHTML}
-             <i class="${item.icon}" style="color: var(--${item.color});"></i>
-           </div>`}
+        ? `<div class="timeline-content"><h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
+            <h4 class="timeline-title">${item.title}</h4>
+            <p>${item.description}</p><i class="${item.icon}" style="color: var(--${item.color});"></i></div>
+            <div class="timeline-dot" style="background: var(--${item.color});"></div><div style="width:45%;"></div>`
+        : `<div style="width:45%;"></div><div class="timeline-dot" style="background: var(--${item.color});"></div>
+            <div class="timeline-content"><h3 class="timeline-period" style="color: var(--${item.color});">${item.period}</h3>
+            <h4 class="timeline-title">${item.title}</h4>
+            <p>${item.description}</p><i class="${item.icon}" style="color: var(--${item.color});"></i></div>`}
     `;
     container.appendChild(el);
   });
 }
 
 // Conceitos do Futuro
-// Substitua a função generateConcepts existente por isso:
 function generateConcepts() {
   const concepts = [
-    { 
-      emoji: "🏙️", 
-      title: "Cidades Inteligentes", 
-      highlights: [
-        "Gestão de energia automatizada",
-        "Mobilidade autônoma integrada",
-        "Infraestrutura adaptativa"
-      ],
-      color: "cyber-blue" 
-    },
-    { 
-      emoji: "🤖", 
-      title: "Robôs Humanoides", 
-      highlights: [
-        "Companheiros sociais",
-        "Assistência a idosos e deficientes",
-        "Trabalhos de risco substituídos"
-      ],
-      color: "cyber-purple" 
-    },
-    { 
-      emoji: "🧠", 
-      title: "IA na Saúde", 
-      highlights: [
-        "Diagnósticos precisos em segundos",
-        "Cirurgias assistidas por IA",
-        "Medicina personalizada"
-      ],
-      color: "cyber-pink" 
-    },
-    { 
-      emoji: "🌌", 
-      title: "Exploração Espacial", 
-      highlights: [
-        "Colonização de Marte",
-        "Estações orbitais autossustentáveis",
-        "Mineração de asteroides"
-      ],
-      color: "cyber-green" 
-    }
+    { emoji: "🏙️", title: "Cidades Inteligentes", description: "IA controla energia e mobilidade.", color: "cyber-blue" },
+    { emoji: "🤖", title: "Robôs Humanoides", description: "Companheiros e assistentes sociais.", color: "cyber-purple" },
+    { emoji: "🧠", title: "IA na Saúde", description: "Diagnósticos e cirurgias avançadas.", color: "cyber-pink" },
+    { emoji: "🌌", title: "Exploração Espacial", description: "Colonização e exploração do cosmos.", color: "cyber-green" }
   ];
-
   const container = document.getElementById('concepts-grid');
-  container.innerHTML = "";
-
   concepts.forEach(concept => {
     const card = document.createElement('div');
     card.className = 'concept-card';
     card.innerHTML = `
       <div class="concept-emoji">${concept.emoji}</div>
       <h3 class="concept-title" style="color: var(--${concept.color});">${concept.title}</h3>
-      <ul class="concept-list">
-        ${concept.highlights.map(h => `<li>${h}</li>`).join('')}
-      </ul>
+      <p class="concept-description">${concept.description}</p>
     `;
     container.appendChild(card);
   });
@@ -197,41 +86,6 @@ const videoOptions = {
   "Natureza e Sustentabilidade": ["Florestas artificiais", "Cidades verdes", "Limpeza dos oceanos por IA"],
   "Comunicação e Entretenimento": ["Hologramas interativos", "Jogos de realidade aumentada", "Música criada por IA"]
 };
-// Explicações extras para cada opção
-const videoExplanations = {
-  "Cidade flutuante": "No futuro, cidades inteiras poderão flutuar sobre oceanos, aproveitando energia limpa das ondas e ventos.",
-  "Megalópole vertical": "Arranha-céus interligados formando cidades verticais, otimizando espaço e reduzindo impacto ambiental.",
-  "Cidade subterrânea": "Comunidades inteiras abaixo da superfície, protegidas de catástrofes climáticas e aproveitando energia geotérmica.",
-
-  "Carro voador": "Veículos pessoais voando em rotas aéreas inteligentes, reduzindo o trânsito terrestre.",
-  "Trem hipersônico": "Trens ultra rápidos em túneis a vácuo, conectando cidades em minutos.",
-  "Drone-táxi": "Pequenos drones autônomos transportando passageiros com rapidez e segurança.",
-
-  "Energia solar espacial": "Satélites coletando energia solar no espaço e transmitindo para a Terra.",
-  "Reatores de fusão limpa": "Fusão nuclear controlada, oferecendo energia ilimitada e sem poluição.",
-  "Turbinas aéreas flutuantes": "Turbinas voadoras aproveitando ventos constantes em grandes altitudes.",
-
-  "Convívio humano-robô": "Robôs integrados ao cotidiano como colegas de trabalho e amigos sociais.",
-  "Realidade virtual no trabalho": "Ambientes virtuais imersivos substituindo escritórios físicos.",
-  "Democracia digital": "Cidadãos votando e participando em decisões políticas diretamente pela internet, mediadas por IA.",
-
-  "Robôs médicos": "Cirurgias e diagnósticos feitos com precisão milimétrica por IA.",
-  "Nanorrobôs no corpo": "Microrrobôs circulando na corrente sanguínea para curar doenças.",
-  "Clonagem de órgãos": "Órgãos cultivados em laboratório para transplantes sem rejeição.",
-
-  "Colônia em Marte": "Cidades humanas em Marte, autossustentáveis com energia local.",
-  "Estações orbitais": "Megaestruturas orbitando a Terra com habitação e pesquisa científica.",
-  "Exploração de luas geladas": "Missões em luas como Europa e Encélado, buscando vida sob oceanos congelados.",
-
-  "Florestas artificiais": "Estruturas que imitam árvores para filtrar ar e gerar oxigênio.",
-  "Cidades verdes": "Metrópoles cobertas por vegetação integrada, equilibrando tecnologia e natureza.",
-  "Limpeza dos oceanos por IA": "Robôs e sistemas inteligentes removendo plástico e resíduos dos mares.",
-
-  "Hologramas interativos": "Projeções realistas em 3D para comunicação e entretenimento.",
-  "Jogos de realidade aumentada": "Jogos fundindo mundo real e virtual em tempo real.",
-  "Música criada por IA": "Canções geradas sob medida, adaptadas ao humor e preferências da pessoa."
-};
-
 
 const categoryIcons = {
   "Ambiente da Cidade": "fa-solid fa-city",
@@ -328,28 +182,13 @@ function showVideoResult(videoData) {
     <p style="color: var(--text-secondary); margin-bottom: 24px;">
       Sua visão: "<em>${videoData.description}</em>"
     </p>
-    <video id="generated-video" controls width="640">
+    <video controls width="640">
       <source src="${videoData.videoUrl}" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>
   `;
   videoResult.classList.remove('hidden');
-
-  // Scroll suave até o vídeo
-  videoResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-  // Espera um pouquinho para garantir que o vídeo foi renderizado
-  setTimeout(() => {
-    const vid = document.getElementById("generated-video");
-    if (vid) {
-      vid.play().catch(() => {
-        // Caso o navegador bloqueie autoplay, não quebra o fluxo
-        console.log("Autoplay bloqueado pelo navegador.");
-      });
-    }
-  }, 500);
 }
-
 function updateStats() {
   document.getElementById('videos-generated').textContent = videosGenerated;
 }
