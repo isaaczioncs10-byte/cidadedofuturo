@@ -346,15 +346,7 @@ function showVideoResult(videoData) {
   videoResult.classList.add('show');
 
 
-const elementTop = videoResult.getBoundingClientRect().top + window.pageYOffset;
-  const elementHeight = videoResult.offsetHeight;
-  const windowHeight = window.innerHeight;
-
-  const offset = -60; // compensa o menu fixo
-  const scrollTo = elementTop - (windowHeight / 2) + (elementHeight / 2) + offset;
-
-  window.scrollTo({ top: scrollTo, behavior: "smooth" });
-
+videoResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
   // Play automático
   setTimeout(() => {
