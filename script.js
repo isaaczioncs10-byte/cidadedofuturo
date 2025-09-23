@@ -198,6 +198,40 @@ const videoOptions = {
   "Natureza e Sustentabilidade": ["Florestas artificiais", "Cidades verdes", "Limpeza dos oceanos por IA"],
   "Comunicação e Entretenimento": ["Hologramas interativos", "Jogos de realidade aumentada", "Música criada por IA"]
 };
+// Explicações extras para cada opção
+const videoExplanations = {
+  "Cidade flutuante": "No futuro, cidades inteiras poderão flutuar sobre oceanos, aproveitando energia limpa das ondas e ventos.",
+  "Megalópole vertical": "Arranha-céus interligados formando cidades verticais, otimizando espaço e reduzindo impacto ambiental.",
+  "Cidade subterrânea": "Comunidades inteiras abaixo da superfície, protegidas de catástrofes climáticas e aproveitando energia geotérmica.",
+
+  "Carro voador": "Veículos pessoais voando em rotas aéreas inteligentes, reduzindo o trânsito terrestre.",
+  "Trem hipersônico": "Trens ultra rápidos em túneis a vácuo, conectando cidades em minutos.",
+  "Drone-táxi": "Pequenos drones autônomos transportando passageiros com rapidez e segurança.",
+
+  "Energia solar espacial": "Satélites coletando energia solar no espaço e transmitindo para a Terra.",
+  "Reatores de fusão limpa": "Fusão nuclear controlada, oferecendo energia ilimitada e sem poluição.",
+  "Turbinas aéreas flutuantes": "Turbinas voadoras aproveitando ventos constantes em grandes altitudes.",
+
+  "Convívio humano-robô": "Robôs integrados ao cotidiano como colegas de trabalho e amigos sociais.",
+  "Realidade virtual no trabalho": "Ambientes virtuais imersivos substituindo escritórios físicos.",
+  "Democracia digital": "Cidadãos votando e participando em decisões políticas diretamente pela internet, mediadas por IA.",
+
+  "Robôs médicos": "Cirurgias e diagnósticos feitos com precisão milimétrica por IA.",
+  "Nanorrobôs no corpo": "Microrrobôs circulando na corrente sanguínea para curar doenças.",
+  "Clonagem de órgãos": "Órgãos cultivados em laboratório para transplantes sem rejeição.",
+
+  "Colônia em Marte": "Cidades humanas em Marte, autossustentáveis com energia local.",
+  "Estações orbitais": "Megaestruturas orbitando a Terra com habitação e pesquisa científica.",
+  "Exploração de luas geladas": "Missões em luas como Europa e Encélado, buscando vida sob oceanos congelados.",
+
+  "Florestas artificiais": "Estruturas que imitam árvores para filtrar ar e gerar oxigênio.",
+  "Cidades verdes": "Metrópoles cobertas por vegetação integrada, equilibrando tecnologia e natureza.",
+  "Limpeza dos oceanos por IA": "Robôs e sistemas inteligentes removendo plástico e resíduos dos mares.",
+
+  "Hologramas interativos": "Projeções realistas em 3D para comunicação e entretenimento.",
+  "Jogos de realidade aumentada": "Jogos fundindo mundo real e virtual em tempo real.",
+  "Música criada por IA": "Canções geradas sob medida, adaptadas ao humor e preferências da pessoa."
+};
 
 const categoryIcons = {
   "Ambiente da Cidade": "fa-solid fa-city",
