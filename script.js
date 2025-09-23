@@ -346,16 +346,14 @@ function showVideoResult(videoData) {
   videoResult.classList.add('show');
 
 
-// Centralizar o vídeo na tela
 const elementTop = videoResult.getBoundingClientRect().top + window.pageYOffset;
-const elementHeight = videoResult.offsetHeight;
-const windowHeight = window.innerHeight;
+  const elementHeight = videoResult.offsetHeight;
+  const windowHeight = window.innerHeight;
 
-const scrollTo = elementTop - (windowHeight / 2) + (elementHeight / 2);
+  const offset = -60; // compensa o menu fixo
+  const scrollTo = elementTop - (windowHeight / 2) + (elementHeight / 2) + offset;
 
-window.scrollTo({ top: scrollTo, behavior: 'smooth' });
-
-window.scrollTo({ top: y, behavior: 'smooth' });
+  window.scrollTo({ top: scrollTo, behavior: "smooth" });
 
 
   // Play automático
