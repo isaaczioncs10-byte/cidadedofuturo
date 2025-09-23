@@ -288,7 +288,7 @@ async function chooseOption(category, option) {
 
   // Mostrar loading
   loadingSection.classList.remove("hidden");
- videoResult.classList.add('show');
+ videoResult.classList.add('hidden');
 
   await new Promise(r => setTimeout(r, 1000)); // 1s de loading
 
@@ -343,7 +343,7 @@ function showVideoResult(videoData) {
       <p>${explanation}</p>
     </div>
   `;
-  videoResult.classList.remove('hidden');
+  videoResult.classList.add('show');
 
 
 // Centralizar o vídeo na tela
