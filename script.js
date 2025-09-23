@@ -125,6 +125,7 @@ function generateTimeline() {
 
 
 // Conceitos do Futuro
+// Substitua a função generateConcepts existente por isso:
 function generateConcepts() {
   const concepts = [
     { 
