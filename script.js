@@ -345,9 +345,15 @@ function showVideoResult(videoData) {
   `;
   videoResult.classList.remove('hidden');
 
-  // Scroll até o vídeo
-const yOffset = -100; // ajusta a posição (pode mudar o valor se quiser mais pra cima/baixo)
-const y = videoResult.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+// Centralizar o vídeo na tela
+const elementTop = videoResult.getBoundingClientRect().top + window.pageYOffset;
+const elementHeight = videoResult.offsetHeight;
+const windowHeight = window.innerHeight;
+
+const scrollTo = elementTop - (windowHeight / 2) + (elementHeight / 2);
+
+window.scrollTo({ top: scrollTo, behavior: 'smooth' });
 
 window.scrollTo({ top: y, behavior: 'smooth' });
 
