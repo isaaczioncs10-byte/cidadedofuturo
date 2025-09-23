@@ -322,33 +322,37 @@ async function chooseOption(category, option) {
 }
 
 function showVideoResult(videoData) {
+  const explanation = videoExplanations[videoData.title.split(" - ")[0]] || "Exploração futurista em andamento...";
+
   const videoResult = document.getElementById('video-result');
   videoResult.innerHTML = `
     <h3>Vídeo Carregado 🎉</h3>
-    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+    <p style="color: var(--text-secondary); margin-bottom: 16px;">
       Sua visão: "<em>${videoData.description}</em>"
     </p>
     <video id="generated-video" controls width="640">
       <source src="${videoData.videoUrl}" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>
+    <div class="video-explanation">
+      <h4>Como seria isso no futuro?</h4>
+      <p>${explanation}</p>
+    </div>
   `;
   videoResult.classList.remove('hidden');
 
-  // Scroll suave até o vídeo
+  // Scroll até o vídeo
   videoResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-  // Espera um pouquinho para garantir que o vídeo foi renderizado
+  // Play automático
   setTimeout(() => {
     const vid = document.getElementById("generated-video");
     if (vid) {
-      vid.play().catch(() => {
-        // Caso o navegador bloqueie autoplay, não quebra o fluxo
-        console.log("Autoplay bloqueado pelo navegador.");
-      });
+      vid.play().catch(() => console.log("Autoplay bloqueado."));
     }
   }, 500);
 }
+
 
 function updateStats() {
   document.getElementById('videos-generated').textContent = videosGenerated;
