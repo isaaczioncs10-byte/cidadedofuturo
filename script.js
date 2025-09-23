@@ -288,7 +288,7 @@ async function chooseOption(category, option) {
 
   // Mostrar loading
   loadingSection.classList.remove("hidden");
-  videoResult.classList.add("hidden");
+ videoResult.classList.add('show');
 
   await new Promise(r => setTimeout(r, 1000)); // 1s de loading
 
