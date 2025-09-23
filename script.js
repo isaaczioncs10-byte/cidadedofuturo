@@ -346,7 +346,11 @@ function showVideoResult(videoData) {
   videoResult.classList.remove('hidden');
 
   // Scroll até o vídeo
-  videoResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+const yOffset = -100; // ajusta a posição (pode mudar o valor se quiser mais pra cima/baixo)
+const y = videoResult.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+window.scrollTo({ top: y, behavior: 'smooth' });
+
 
   // Play automático
   setTimeout(() => {
