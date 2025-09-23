@@ -1196,6 +1196,20 @@ body {
   font-size: 15px;
   line-height: 1.6;
 }
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Centraliza os botões no eixo horizontal */
+  justify-content: center; /* Centraliza no eixo vertical */
+  text-align: center;
+}
+
+.category-card button {
+  margin: 8px 0;  /* Espaço igual entre os botões */
+  width: 80%;     /* Deixa todos os botões do mesmo tamanho dentro do card */
+  max-width: 250px;
+}
+
 
 
 
