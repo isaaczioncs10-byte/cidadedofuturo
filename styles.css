@@ -1209,6 +1209,17 @@ body {
   width: 80%;     /* Deixa todos os botões do mesmo tamanho dentro do card */
   max-width: 250px;
 }
+#video-result {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+#video-result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 
